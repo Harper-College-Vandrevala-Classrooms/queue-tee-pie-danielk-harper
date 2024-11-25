@@ -15,7 +15,29 @@ public class TestQueueTees {
   }
 
   @Test
-  void itWorks() {
-    assertEquals(true, true);
+  void sizeFunc() {
+    assertEquals(0, queue.size());
+  }
+  
+  @Test
+  void enqueueing() {
+    Puppy a = new Puppy();
+    Crocodile b = new Crocodile();
+    
+    queue.enqueue(a);
+    queue.enqueue(b);
+    assertEquals(2, queue.size());
+  }
+  
+  @Test
+  void dequeueing() {
+    Puppy a = new Puppy();
+    Crocodile b = new Crocodile();
+    
+    queue.enqueue(a);
+    queue.enqueue(b);
+    Cutie c = queue.dequeue();
+    
+    assertEquals(a.description(), c.description());
   }
 }
